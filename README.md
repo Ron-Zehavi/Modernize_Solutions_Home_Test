@@ -1,4 +1,4 @@
-# Modernize_Solutions_Home_Test
+# Modernize Solutions Home Test
 
 This is a test design to evaluate python skills, in particular OOP, tests, and clean code mastery
 Full instructions can be found in Puzzle15.pdf file
