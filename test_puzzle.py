@@ -1,4 +1,4 @@
-from main import Puzzle
+from puzzle import Puzzle
 import numpy as np
 
 
@@ -6,7 +6,7 @@ def test_generate_start_position():
     # Arrange
     puzzle = Puzzle()
     # Act
-    start_position = puzzle._generate_start_position()
+    start_position = puzzle._Puzzle__generate_start_position()
     # Assert - Should generate 4*4 array with all numbers in range 0-15
     assert start_position.shape == (4, 4)
 
@@ -18,7 +18,7 @@ def test_generate_end_position():
     # Arrange
     puzzle = Puzzle()
     # Act
-    end_position = puzzle._generate_end_position()
+    end_position = puzzle._Puzzle__generate_end_position()
     # Assert - Should generate the solved position of the puzzle
     expected_end_position = np.array([[1, 2, 3, 4],
                                       [5, 6, 7, 8],
@@ -114,10 +114,10 @@ def test_get_coordinates():
                                 [9, 10, 11, 12],
                                 [13, 14, 15, 0]])
     # Assert
-    assert puzzle._get_coordinates(1) == (0, 0)
-    assert puzzle._get_coordinates(4) == (0, 3)
-    assert puzzle._get_coordinates(13) == (3, 0)
-    assert puzzle._get_coordinates(0) == (3, 3)
+    assert puzzle._Puzzle__get_coordinates(1) == (0, 0)
+    assert puzzle._Puzzle__get_coordinates(4) == (0, 3)
+    assert puzzle._Puzzle__get_coordinates(13) == (3, 0)
+    assert puzzle._Puzzle__get_coordinates(0) == (3, 3)
 
 
 def test_swap_by_coordinates():
@@ -128,7 +128,7 @@ def test_swap_by_coordinates():
                                 [9, 10, 11, 12],
                                 [13, 14, 15, 0]])
     # Act
-    puzzle._swap_by_coordinates(0, 0, 1, 1)
+    puzzle._Puzzle__swap_by_coordinates(0, 0, 1, 1)
     # Assert
     expected_swapped = np.array([[6, 2, 3, 4],
                                   [5, 1, 7, 8],
