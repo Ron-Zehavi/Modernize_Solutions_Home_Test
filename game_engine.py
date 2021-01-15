@@ -2,7 +2,7 @@ import sys
 from puzzle import Puzzle
 
 EXIT_GAME_MESSAGE = "\n\tSo Long, and Thanks for All the Fish"
-REQUEST_INPUT_MESSAGE = "\tPlease enter piece number to swap or enter x to exit -"
+REQUEST_INPUT_MESSAGE = "\tPlease enter piece number to swap or enter x to exit "
 INVALID_INPUT_MESSAGE = "\tInvalid input"
 GAME_WON_MESSAGE = "\nCONGRATS!\nYou are the CHAMPION my friend"
 
@@ -35,7 +35,7 @@ class GameEngine:
         while not self.__is_game_won():
             print(self)
             movable_tiles = self.puzzle.get_valid_tiles_for_swap()
-            self.__handle_input(input(f'{REQUEST_INPUT_MESSAGE} ({movable_tiles})'))
+            self.__handle_input(input(f'{REQUEST_INPUT_MESSAGE}{movable_tiles} - '))
 
         print(self)
         print(GAME_WON_MESSAGE)

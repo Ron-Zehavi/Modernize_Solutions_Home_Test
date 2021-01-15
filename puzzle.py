@@ -31,7 +31,27 @@ class Puzzle:
         4x4 tiles board (2D numpy array), where 15 numbered tiles are initially placed
         in random order and where 16th tile is missing (randomly placed on the board)
         """
-        return np.random.permutation(np.arange(self.side ** 2)).reshape(self.side, self.side)
+        is_solvable = False
+        while not is_solvable:
+            random_board = np.random.permutation(np.arange(1, self.side ** 2))
+            inversions_count = self.__get_inv_count(random_board)
+            if (inversions_count % 2) == 0:
+                is_solvable = True
+
+        checked_board = np.append(random_board, [0]).reshape(self.side, self.side)
+
+        return checked_board
+
+    def __get_inv_count(self, arr):
+
+        inv_count = 0
+        n = (self.side ** 2) - 1
+        for i in range(n):
+            for j in range(i + 1, n):
+                if arr[i] > arr[j]:
+                    inv_count += 1
+
+        return inv_count
 
     def __generate_end_position(self):
         """
